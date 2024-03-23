@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="2">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/example"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Vidu_ListView_ArrayList_Object"
+                android:textSize="20dp"
+                android:background="@color/black"
+                android:textColor="@color/white"
+                android:textAlignment="center">
+            </TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/example"
+                android:paddingTop="20dp"
+                android:textSize="20dp"
+                android:text="Quản lý nhân viên"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:background="#008000">
+            </TextView>
+            <TableLayout
+                android:id="@+id/table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TableRow>
+                    <TextView
+                        android:id="@+id/employeeID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mã NV:"
+                        android:layout_marginLeft="20dp"
+                        android:/>
+
+                    <EditText
+                        android:id="@+id/employeeIDInput"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:minHeight="48dp"
+                        android:ems="10"
+                        android:inputType="text"
+                        android:text=""
+                        android:layout_marginLeft="20dp"/>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:id="@+id/employeeName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tên NV:"
+                        android:layout_marginLeft="20dp"/>
+
+                    <EditText
+                        android:id="@+id/employeeNameInput"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:minHeight="48dp"
+                        android:ems="10"
+                        android:inputType="text"
+                        android:text=""
+                        android:layout_marginLeft="20dp"/>
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:id="@+id/employeeType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Loại NV: "
+                        android:layout_marginLeft="20dp"/>
+                    <RadioButton
+                        android:id="@+id/officalButton"
+                        android:text="Chính thức"
+                        app:layout_constraintLeft_toLeftOf="@+id/employeeType"
+                        android:layout_marginLeft="20dp"
+                        />
+                    <RadioButton
+                        android:id="@+id/partTimeButton"
+                        app:layout_constraintLeft_toLeftOf="@+id/officalButton"
+                        android:layout_marginLeft="20dp"
+                        android:text="Thời vụ"
+                        />
+                </TableRow>
+            </TableLayout>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nhập NV"
+                android:layout_gravity="center_horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/table"
+                android:layout_marginTop="20dp">
+
+            </Button>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/result"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </TextView>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
