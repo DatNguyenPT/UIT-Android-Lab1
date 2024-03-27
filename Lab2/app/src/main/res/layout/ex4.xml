@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:id="@+id/customLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="5">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="2">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/example"
+                android:paddingTop="20dp"
+                android:textSize="20dp"
+                android:text="Lab02_5"
+                android:textColor="@color/white"
+                android:background="@color/black">
+            </TextView>
+            <TableLayout
+                android:id="@+id/table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TableRow>
+                    <TextView
+                        android:id="@+id/ex4EmployeeID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ID"
+                        android:layout_marginLeft="20dp" />
+
+                    <EditText
+                        android:id="@+id/ex4EmployeeIDInput"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:minHeight="48dp"
+                        android:ems="10"
+                        android:inputType="text"
+                        android:text=""
+                        android:hint="ID"
+                        android:layout_marginLeft="20dp"/>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:id="@+id/ex4EmployeeName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Full Name"
+                        android:layout_marginLeft="20dp"/>
+
+                    <EditText
+                        android:id="@+id/ex4EmployeeNameInput"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:minHeight="48dp"
+                        android:ems="10"
+                        android:inputType="text"
+                        android:text=""
+                        android:hint="Full Name"
+                        android:layout_marginLeft="20dp"/>
+                </TableRow>
+            </TableLayout>
+            <CheckBox
+                android:id="@+id/isManagerButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Is A Manager"
+                android:layout_gravity="center_horizontal"
+                />
+            <Button
+                android:id="@+id/addEmployeeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ADD"
+                android:layout_gravity="center_horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/table"
+                android:layout_marginTop="20dp">
+
+            </Button>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/secondLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3">
+            <ListView
+                android:id="@+id/staffList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </ListView>
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
