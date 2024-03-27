@@ -26,13 +26,13 @@ public class MainActivity extends AppCompatActivity {
         ex3.execute(listView, addButton, nameInput, idInput, this);*/
 
         // Ex4
-        setContentView(R.layout.ex4);
+        /*setContentView(R.layout.ex4);
         ListView listView = findViewById(R.id.staffList);
         Button addButton = findViewById(R.id.addEmployeeButton);
         EditText nameInput = findViewById(R.id.ex4EmployeeNameInput);
         EditText idInput = findViewById(R.id.ex4EmployeeIDInput);
         EX4 ex4 = new EX4();
-        ex4.execute(listView, addButton, nameInput, idInput, this);
+        ex4.execute(listView, addButton, nameInput, idInput, this);*/
     }
 
 
