@@ -49,8 +49,8 @@ public class EX3 {
                     ArrayAdapter<employee> arrayAdapter = (ArrayAdapter<employee>) listView.getAdapter();
                     if (check(newEmployee, employees)) {
                         new AlertDialog.Builder(activity)
-                                .setMessage("Tên này đã tồn tại")
-                                .setTitle("Trùng tên")
+                                .setMessage("Nhân viên này đã tồn tại")
+                                .setTitle("Trùng nhân viên")
                                 .setPositiveButton("OK", null)
                                 .show();
                     } else {
@@ -71,7 +71,7 @@ public class EX3 {
 
     private boolean check(employee newEmployee, List<employee> employees) {
         for (employee employee : employees) {
-            if (employee.getName().equals(newEmployee.getName()) && employee.getId().equals(newEmployee.getId()))
+            if (employee.getId().equals(newEmployee.getId()))
                 return true;
         }
         return false;
