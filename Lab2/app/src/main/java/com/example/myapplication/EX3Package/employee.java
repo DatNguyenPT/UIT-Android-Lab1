@@ -29,7 +29,7 @@ public class employee {
     }
 
     public String toString(){
-        return super.toString() + "->";
+        return "";
     }
 
 }

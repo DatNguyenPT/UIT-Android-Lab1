@@ -7,6 +7,6 @@ public class employeeFullTime extends employee{
     }
     @Override
     public String toString(){
-        return super.toString() + "->";
+        return "name: " + getName() + ", ID: " + getId() + ", role: full time" + ", salary: " + salary();
     }
 }

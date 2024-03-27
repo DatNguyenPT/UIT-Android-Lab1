@@ -14,41 +14,40 @@ import com.example.myapplication.R;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class EX3 {
+    private List<employee> employees = new ArrayList<>();
 
-    public void execute(ListView listView, Button addButton, EditText nameInput, EditText idInput, Activity activity){
+    public void execute(ListView listView, Button addButton, EditText nameInput, EditText idInput, Activity activity) {
         setupListView(listView, activity);
-        addNewEmployee(addButton, nameInput,idInput, activity);
+        addNewEmployee(addButton, nameInput, idInput, activity);
     }
+
     private void setupListView(ListView listView, Activity activity) {
-        List<employee>employees = new ArrayList<>();
         ArrayAdapter<employee> arrayAdapter = new ArrayAdapter<>(activity, android.R.layout.simple_list_item_1, employees);
         listView.setAdapter(arrayAdapter);
     }
 
-    public void addNewEmployee(Button addButton, EditText nameInput, EditText idInput, Activity activity){
-        List<employee>employees = new ArrayList<>();
+    public void addNewEmployee(Button addButton, EditText nameInput, EditText idInput, Activity activity) {
         RadioGroup radioGroup = activity.findViewById(R.id.radioGroup);
-        employee newEmployee;
-        int selectedRadioButtonId = radioGroup.getCheckedRadioButtonId();
-        if (selectedRadioButtonId == R.id.partTimeButton){
-            newEmployee = new employeePartTime();
-        }else{
-            newEmployee = new employeeFullTime();
-        }
-        String id = activity.findViewById(R.id.employeeIDInput).toString();
-        String name = activity.findViewById(R.id.employeeNameInput).toString();
-        newEmployee.setId(id);
-        newEmployee.setName(name);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!newEmployee.getName().equals("") && !newEmployee.getId().equals("")) {
+                String id = idInput.getText().toString().trim();
+                String name = nameInput.getText().toString().trim();
+
+                if (!name.isEmpty() && !id.isEmpty()) {
+                    employee newEmployee;
+                    if (radioGroup.getCheckedRadioButtonId() == R.id.partTimeButton) {
+                        newEmployee = new employeePartTime();
+                    } else {
+                        newEmployee = new employeeFullTime();
+                    }
+                    newEmployee.setId(id);
+                    newEmployee.setName(name);
+
                     ListView listView = activity.findViewById(R.id.employeeList);
-                    employees.add(newEmployee);
                     ArrayAdapter<employee> arrayAdapter = (ArrayAdapter<employee>) listView.getAdapter();
-                    if (arrayAdapter.getPosition(newEmployee) != -1) {
+                    if (check(newEmployee, employees)) {
                         new AlertDialog.Builder(activity)
                                 .setMessage("Tên này đã tồn tại")
                                 .setTitle("Trùng tên")
@@ -68,5 +67,13 @@ public class EX3 {
             }
         });
     }
-}
 
+
+    private boolean check(employee newEmployee, List<employee> employees) {
+        for (employee employee : employees) {
+            if (employee.getName().equals(newEmployee.getName()) && employee.getId().equals(newEmployee.getId()))
+                return true;
+        }
+        return false;
+    }
+}

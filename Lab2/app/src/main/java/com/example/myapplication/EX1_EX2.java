@@ -67,7 +67,6 @@ public class EX1_EX2 {
 
     private void setupAddButton(Button addButton, EditText nameInput, Activity activity) {
         TextView positionView = activity.findViewById(R.id.positionView);
-
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
