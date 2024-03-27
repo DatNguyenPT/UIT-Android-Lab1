@@ -7,12 +7,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:weightSum="2">
+        android:weightSum="5">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:orientation="vertical"
-            android:layout_weight="1">
+            android:layout_weight="2">
             <TextView
                 android:id="@+id/example"
                 android:layout_width="match_parent"
@@ -44,8 +44,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Mã NV:"
-                        android:layout_marginLeft="20dp"
-                        android:/>
+                        android:layout_marginLeft="20dp" />
 
                     <EditText
                         android:id="@+id/employeeIDInput"
@@ -56,6 +55,7 @@
                         android:ems="10"
                         android:inputType="text"
                         android:text=""
+                        android:hint="Nhập mã NV"
                         android:layout_marginLeft="20dp"/>
                 </TableRow>
                 <TableRow>
@@ -75,6 +75,7 @@
                         android:ems="10"
                         android:inputType="text"
                         android:text=""
+                        android:hint="Nhập tên NV"
                         android:layout_marginLeft="20dp"/>
                 </TableRow>
 
@@ -85,21 +86,32 @@
                         android:layout_height="wrap_content"
                         android:text="Loại NV: "
                         android:layout_marginLeft="20dp"/>
-                    <RadioButton
-                        android:id="@+id/officalButton"
-                        android:text="Chính thức"
-                        app:layout_constraintLeft_toLeftOf="@+id/employeeType"
-                        android:layout_marginLeft="20dp"
-                        />
-                    <RadioButton
-                        android:id="@+id/partTimeButton"
-                        app:layout_constraintLeft_toLeftOf="@+id/officalButton"
-                        android:layout_marginLeft="20dp"
-                        android:text="Thời vụ"
-                        />
+                    <RadioGroup
+                        android:id="@+id/radioGroup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/officalButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Chính thức"
+                            android:layout_marginLeft="20dp"/>
+
+                        <RadioButton
+                            android:id="@+id/partTimeButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Thời vụ"
+                            android:layout_marginLeft="20dp"/>
+
+                    </RadioGroup>
+
                 </TableRow>
             </TableLayout>
             <Button
+                android:id="@+id/addEmployeeButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nhập NV"
@@ -111,14 +123,14 @@
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-            <TextView
-                android:id="@+id/result"
+            android:layout_height="0dp"
+            android:layout_weight="3">
+            <ListView
+                android:id="@+id/employeeList"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+            </ListView>
 
-            </TextView>
         </LinearLayout>
 
     </LinearLayout>
