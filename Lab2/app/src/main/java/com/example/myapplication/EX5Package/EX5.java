@@ -6,9 +6,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import com.example.myapplication.R;
 
@@ -40,29 +38,23 @@ public class EX5 {
             @Override
             public void onClick(View v) {
                 String name = nameInput.getText().toString().trim();
-                TextView des = activity.findViewById(R.id.description);
-                ImageView star = activity.findViewById(R.id.promotionStarCheck);
-                if(star != null){
-                    star.setImageResource(R.drawable.star);
-                }
                 if (!name.isEmpty()) {
                     food newFood = new food();
-                    newFood.setName(name);
-                    if (checkBox.isChecked()) {
-                        star.setVisibility(View.VISIBLE);
-                        newFood.setPromotion(true);
-                    } else {
-                        star.setVisibility(View.INVISIBLE);
-                        newFood.setPromotion(false);
-                    }
-                    des.setText(name);
-                    newFood.setImage(R.drawable.star);
-                    foodList.add(newFood);
                     Spinner spinner = activity.findViewById(R.id.spinner_thumbnail);
                     spinnerAdapter sAdapter = (spinnerAdapter) spinner.getAdapter();
                     if (sAdapter != null) {
                         sAdapter.notifyDataSetChanged();
                     }
+                    newFood.setName(name);
+                    Thumbnail selectedThumbnail = (Thumbnail) spinner.getSelectedItem();
+                    int imageId = selectedThumbnail.getImg();
+                    newFood.setImage(imageId);
+                    if (checkBox.isChecked()) {
+                        newFood.setPromotion(true);
+                    } else {
+                        newFood.setPromotion(false);
+                    }
+
                     GridView gridView = activity.findViewById(R.id.foodList);
                     gridViewAdapter gAdapter = (gridViewAdapter) gridView.getAdapter();
                     if (gAdapter == null) {
@@ -76,8 +68,12 @@ public class EX5 {
                                 .setPositiveButton("OK", null)
                                 .show();
                     } else {
+                        foodList.add(newFood);
                         gAdapter.add(newFood);
                         gAdapter.notifyDataSetChanged();
+                        nameInput.setText("");
+                        CheckBox promote = activity.findViewById(R.id.isPromotion);
+                        promote.setChecked(false);
                     }
                 } else {
                     new AlertDialog.Builder(activity)
@@ -91,8 +87,8 @@ public class EX5 {
     }
 
 
-    private boolean check(food newFood, List<food> foodList) {
-        for (food s : foodList) {
+    private boolean check(food newFood, List<food> allFoods) {
+        for (food s : allFoods) {
             if (s.getName().equals(newFood.getName()))
                 return true;
         }

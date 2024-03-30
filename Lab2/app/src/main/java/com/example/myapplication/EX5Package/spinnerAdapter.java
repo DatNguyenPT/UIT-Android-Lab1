@@ -33,6 +33,7 @@ public class spinnerAdapter extends ArrayAdapter<Thumbnail> {
         }
 
         Thumbnail thumbnail = getItem(position);
+        id = position;
         TextView thumbnailOrder = convertView.findViewById(R.id.thumbnailOrder);
         ImageView foodImage = convertView.findViewById(R.id.foodImage);
 
@@ -43,7 +44,6 @@ public class spinnerAdapter extends ArrayAdapter<Thumbnail> {
             Drawable drawable = res.getDrawable(resId);
             foodImage.setImageDrawable(drawable);
         }
-
         return convertView;
     }
 

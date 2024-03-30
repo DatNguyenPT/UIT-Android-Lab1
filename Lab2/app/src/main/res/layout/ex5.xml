@@ -68,6 +68,7 @@
                         android:layout_width="194dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
+                        android:spinnerMode="dialog"
                         android:minHeight="48dp" />
                 </TableRow>
             </TableLayout>
