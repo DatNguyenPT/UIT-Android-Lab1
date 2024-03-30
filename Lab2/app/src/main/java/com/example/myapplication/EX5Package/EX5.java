@@ -68,7 +68,6 @@ public class EX5 {
                                 .setPositiveButton("OK", null)
                                 .show();
                     } else {
-                        foodList.add(newFood);
                         gAdapter.add(newFood);
                         gAdapter.notifyDataSetChanged();
                         nameInput.setText("");

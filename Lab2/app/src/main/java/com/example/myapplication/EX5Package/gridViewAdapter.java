@@ -32,13 +32,13 @@ public class gridViewAdapter extends ArrayAdapter<food> {
         if (f != null) {
             description.setText(f.getName());
             int imageResId = f.getImage();
+            starCheck.setImageResource(android.R.color.transparent);
             starCheck.setImageResource(R.drawable.star);
-            starCheck.setBackground(null);
             description.setText(f.getName());
             if (f.isPromotion()){
                 starCheck.setVisibility(View.VISIBLE);
             }else{
-                starCheck.setVisibility(View.INVISIBLE);
+                starCheck.setImageResource(android.R.color.transparent);
             }
             foodImg.setImageResource(imageResId);
         }
