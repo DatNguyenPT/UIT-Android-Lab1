@@ -28,8 +28,25 @@ public class spinnerAdapter extends ArrayAdapter<Thumbnail> {
 
     @Override
     public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        return super.getDropDownView(position, convertView, parent);
+        if (convertView == null) {
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_spinner, parent, false);
+        }
+
+        Thumbnail thumbnail = getItem(position);
+        TextView thumbnailOrder = convertView.findViewById(R.id.thumbnailOrder);
+        ImageView foodImage = convertView.findViewById(R.id.foodImage);
+
+        if (thumbnail != null) {
+            thumbnailOrder.setText(thumbnail.getName());
+            Resources res = context.getResources();
+            int resId = thumbnail.getImg();
+            Drawable drawable = res.getDrawable(resId);
+            foodImage.setImageDrawable(drawable);
+        }
+
+        return convertView;
     }
+
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {

@@ -29,10 +29,9 @@ public class EX5 {
         thumbnailList.add(Thumbnail.THUMBNAIL_2);
         thumbnailList.add(Thumbnail.THUMBNAIL_3);
         thumbnailList.add(Thumbnail.THUMBNAIL_4);
-        spinnerAdapter sAdapter = new spinnerAdapter(activity, 0, thumbnailList);
+        spinnerAdapter sAdapter = new spinnerAdapter(activity, R.id.ll_spinnerParent, thumbnailList);
         spinner.setAdapter(sAdapter);
-        sAdapter.notifyDataSetChanged();
-        gridViewAdapter gAdapter = new gridViewAdapter(activity, 0, foodList);
+        gridViewAdapter gAdapter = new gridViewAdapter(activity, R.id.ll_gridViewParent, foodList);
         gridView.setAdapter(gAdapter);
     }
     public void addNewFood(Button addButton, EditText nameInput, Activity activity) {
@@ -43,7 +42,9 @@ public class EX5 {
                 String name = nameInput.getText().toString().trim();
                 TextView des = activity.findViewById(R.id.description);
                 ImageView star = activity.findViewById(R.id.promotionStarCheck);
-                star.setImageResource(R.drawable.star);
+                if(star != null){
+                    star.setImageResource(R.drawable.star);
+                }
                 if (!name.isEmpty()) {
                     food newFood = new food();
                     newFood.setName(name);
