@@ -27,8 +27,8 @@
         <activity android:name=".EX3Package.EX3"></activity>
         <activity android:name=".EX4Package.EX4"></activity>
         <activity android:name=".EX5Package.EX5"></activity>
-        <activity android:name=".EX6Package.EX6">
-        </activity>
+        <activity android:name=".EX6Package.EX6"></activity>
+        <activity android:name=".EX7Package.EX7"></activity>
 
     </application>
 

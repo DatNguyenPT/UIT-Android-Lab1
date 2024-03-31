@@ -1,5 +1,6 @@
-package com.example.myapplication.EX6Package;
+package com.example.myapplication;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -8,11 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import com.example.myapplication.EX1_EX2;
 import com.example.myapplication.EX3Package.EX3;
 import com.example.myapplication.EX4Package.EX4;
 import com.example.myapplication.EX5Package.EX5;
-import com.example.myapplication.R;
+import com.example.myapplication.EX6Package.EX6;
+import com.example.myapplication.EX7Package.EX7;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +27,7 @@ public class ButtonAdapter extends ArrayAdapter<Button> {
         this.context = context;
     }
 
+    @SuppressLint("SuspiciousIndentation")
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
@@ -60,9 +62,10 @@ public class ButtonAdapter extends ArrayAdapter<Button> {
                     case 4:
                         intent = new Intent(context, EX6.class);
                         break;
-                    // Add more cases as needed for additional buttons
+                    case 5:
+                        intent = new Intent(context, EX7.class);
+                        break;
                     default:
-                        // Default to some fallback action
                         intent = new Intent(context, EX1_EX2.class);
                         break;
                 }

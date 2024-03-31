@@ -26,8 +26,7 @@ public class HeroAdapter extends RecyclerView.Adapter<HeroAdapter.ViewHolder> {
     // Mọi Adapter sẽ có 3 phương thức quan trọng:
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int
-            viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(mContext);
         View heroView = inflater.inflate(R.layout.herorecylerrow, parent,
                 false);
