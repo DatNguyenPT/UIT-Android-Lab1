@@ -36,7 +36,6 @@ public class EX7 extends AppCompatActivity {
         staffRecyler.setAdapter(eAdapterv2);
         staffRecyler.setLayoutManager(new LinearLayoutManager(this)); // Set linear type
         addNewEmployee(addButton, nameInput, idInput, this);
-        eAdapterv2.notifyItemInserted(staffList.size() - 1);
     }
 
     public void addNewEmployee(Button addButton, EditText nameInput, EditText idInput, Activity activity) {
@@ -46,7 +45,6 @@ public class EX7 extends AppCompatActivity {
             public void onClick(View v) {
                 String id = idInput.getText().toString().trim();
                 String name = nameInput.getText().toString().trim();
-
                 if (!name.isEmpty() && !id.isEmpty()) {
                     staff newStaff = new staff();
                     newStaff.setName(name);
@@ -58,12 +56,7 @@ public class EX7 extends AppCompatActivity {
                         newStaff.setManager(false);
                         newStaff.setPosition("Staff");
                     }
-                    /*RecyclerView recyclerView = activity.findViewById(R.id.ex7EmployeeList);
-                    employeeAdapterv2 tempAdapter = (employeeAdapterv2) recyclerView.getAdapter();
-                    if (tempAdapter == null) {
-                        tempAdapter = new employeeAdapterv2(activity, staffList);
-                        recyclerView.setAdapter(tempAdapter);
-                    }*/
+
                     if (check(newStaff, staffList)) {
                         new AlertDialog.Builder(activity)
                                 .setMessage("Nhân viên này đã tồn tại")
@@ -72,6 +65,7 @@ public class EX7 extends AppCompatActivity {
                                 .show();
                     } else {
                         staffList.add(newStaff);
+                        eAdapterv2.notifyDataSetChanged(); // Notify adapter of data change
                     }
                 } else {
                     new AlertDialog.Builder(activity)
@@ -83,6 +77,7 @@ public class EX7 extends AppCompatActivity {
             }
         });
     }
+
     private boolean check(staff newStaff, List<staff> staffs) {
         for (staff s : staffs) {
             if (s.getId().equals(newStaff.getId()))

@@ -13,8 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.myapplication.EX4Package.staff;
-import com.example.myapplication.EX6Package.Hero;
-import com.example.myapplication.EX6Package.HeroAdapter;
 import com.example.myapplication.R;
 
 import java.util.ArrayList;
