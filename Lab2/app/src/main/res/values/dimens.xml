@@ -2,4 +2,5 @@
 <resources>
     <dimen name="image_width">60dp</dimen>
     <dimen name="image_height">60dp</dimen>
+    <dimen name="space_between_row">10dp</dimen>
 </resources>

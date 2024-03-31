@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -11,11 +12,25 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.myapplication.EX3Package.EX3;
 
 import java.util.ArrayList;
 
-public class EX1_EX2 {
+public class EX1_EX2 extends AppCompatActivity {
     /*----------------------------------EX1 + EX2-------------------------------------------*/
+
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.ex2);
+        ListView listView = findViewById(R.id.name_list);
+        Button addButton = findViewById(R.id.addButton);
+        EditText nameInput = findViewById(R.id.nameInput);
+        TextView textView = findViewById(R.id.positionView);
+        EX1_EX2 ex1_2 = new EX1_EX2();
+        ex1_2.execute(listView, addButton, nameInput, textView, this);
+    }
     public void execute(ListView listView, Button addButton, EditText nameInput, TextView positionView, Activity activity){
         setupListView(listView, positionView, activity);
         setupAddButton(addButton, nameInput, activity);

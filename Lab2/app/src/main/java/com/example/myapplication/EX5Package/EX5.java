@@ -1,21 +1,44 @@
 package com.example.myapplication.EX5Package;
 
+import static android.app.PendingIntent.getActivity;
+
 import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.Spinner;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+
+import com.example.myapplication.EX6Package.EX6;
+import com.example.myapplication.EX6Package.HeroAdapter;
 import com.example.myapplication.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class EX5 {
+public class EX5 extends AppCompatActivity {
     private List<food> foodList = new ArrayList<>();
     private List<Thumbnail>thumbnailList = new ArrayList<>();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.ex5);
+        GridView gridView = findViewById(R.id.foodList);
+        Spinner spinner = findViewById(R.id.spinner_thumbnail);
+        Button addButton = findViewById(R.id.addFoodButton);
+        EditText nameInput = findViewById(R.id.foodNameInput);
+        EX5 ex5 = new EX5();
+        ex5.execute(gridView, spinner, addButton, nameInput, this);
+    }
 
     public void execute(GridView gridView, Spinner spinner, Button addButton, EditText nameInput, Activity activity) {
         setupAdapter(spinner, gridView, activity);
@@ -69,6 +92,8 @@ public class EX5 {
                                 .show();
                     } else {
                         gAdapter.add(newFood);
+                        Toast.makeText(activity, "Thêm món mới thành công",
+                                Toast.LENGTH_LONG).show();
                         gAdapter.notifyDataSetChanged();
                         nameInput.setText("");
                         CheckBox promote = activity.findViewById(R.id.isPromotion);

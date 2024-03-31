@@ -7,6 +7,7 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
+        android:windowSoftInputMode="adjustResize"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -16,11 +17,17 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:windowSoftInputMode="stateHidden|adjustPan">
+            android:windowSoftInputMode="stateHidden|adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".EX1_EX2"></activity>
+        <activity android:name=".EX3Package.EX3"></activity>
+        <activity android:name=".EX4Package.EX4"></activity>
+        <activity android:name=".EX5Package.EX5"></activity>
+        <activity android:name=".EX6Package.EX6">
         </activity>
 
     </application>

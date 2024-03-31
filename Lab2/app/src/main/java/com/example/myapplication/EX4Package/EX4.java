@@ -1,21 +1,40 @@
 package com.example.myapplication.EX4Package;
 
 import android.app.Activity;
+import android.os.Bundle;
 import android.text.Layout;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.ListView;
+import android.widget.Spinner;
+
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.myapplication.EX5Package.EX5;
 import com.example.myapplication.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class EX4 {
+public class EX4 extends AppCompatActivity {
     private List<staff> staffs = new ArrayList<>();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.ex4);
+        ListView listView = findViewById(R.id.staffList);
+        Button addButton = findViewById(R.id.addEmployeeButton);
+        EditText nameInput = findViewById(R.id.ex4EmployeeNameInput);
+        EditText idInput = findViewById(R.id.ex4EmployeeIDInput);
+        EX4 ex4 = new EX4();
+        ex4.execute(listView, addButton, nameInput, idInput, this);
+    }
 
 
     public void execute(ListView listView, Button addButton, EditText nameInput, EditText idInput, Activity activity) {
