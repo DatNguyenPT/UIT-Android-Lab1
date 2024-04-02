@@ -1,105 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/firstLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:weightSum="8">
+        app:layout_constraintBottom_toTopOf="@+id/foodList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/textView"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:orientation="vertical"
-            android:layout_weight="3">
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            android:paddingTop="20dp"
+            android:text="Lab02_6"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="20dp"
-                android:textSize="20dp"
-                android:text="Lab02_6"
-                android:textColor="@color/white"
-                android:background="@color/black">
-            </TextView>
+        <TableLayout
+            android:id="@+id/foodTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            <TableLayout
-                android:id="@+id/foodTable"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <TableRow>
 
-                <TableRow>
+                <TextView
+                    android:id="@+id/foodName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="Name" />
 
-                    <TextView
-                        android:id="@+id/foodName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Name"
-                        android:layout_marginLeft="20dp" />
+                <EditText
+                    android:id="@+id/foodNameInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Name"
+                    android:inputType="text"
+                    android:minHeight="48dp"
+                    android:text="" />
 
-                    <EditText
-                        android:id="@+id/foodNameInput"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:minHeight="48dp"
-                        android:ems="10"
-                        android:inputType="text"
-                        android:text=""
-                        android:hint="Name"
-                        android:layout_marginLeft="20dp"/>
+            </TableRow>
 
-                </TableRow>
+            <TableRow>
 
-                <TableRow>
+                <TextView
+                    android:id="@+id/thumbnail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="Thumbnail" />
 
-                    <TextView
-                        android:id="@+id/thumbnail"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Thumbnail"
-                        android:layout_marginLeft="20dp"/>
-
-                    <Spinner
-                        android:id="@+id/spinner_thumbnail"
-                        android:layout_width="194dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:spinnerMode="dialog"
-                        android:minHeight="48dp" />
-                </TableRow>
-            </TableLayout>
-            <CheckBox
-                android:id="@+id/isPromotion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintLeft_toRightOf="parent"
-                android:text="Promotion">
-            </CheckBox>
-            <Button
-                android:id="@+id/addFoodButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_gravity="center"
-                android:text="ADD A NEW DISH">
-
-            </Button>
-        </LinearLayout>
-        <GridView
-            android:id="@+id/foodList"
-            android:horizontalSpacing="6dp"
-            android:verticalSpacing="6dp"
+                <Spinner
+                    android:id="@+id/spinner_thumbnail"
+                    android:layout_width="194dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:minHeight="48dp"
+                    android:spinnerMode="dialog" />
+            </TableRow>
+        </TableLayout>
+        <CheckBox
+            android:id="@+id/isPromotion"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:numColumns="2"
-            android:layout_weight="5">
-        </GridView>
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="Promotion" />
+
+        <Button
+            android:id="@+id/addFoodButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="ADD A NEW DISH"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/isPromotion" />
 
     </LinearLayout>
+
+    <GridView
+        android:id="@+id/foodList"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:numColumns="2"
+        android:layout_weight="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstLayout"
+        android:layout_marginTop="10dp"
+        android:horizontalSpacing="6dp"
+        android:verticalSpacing="6dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
