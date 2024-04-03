@@ -34,17 +34,20 @@
 
     <TableLayout
         android:id="@+id/table"
-        android:layout_width="0dp"
+        android:stretchColumns="1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/manageEmployeesTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <TableRow>
+        <TableRow
+            android:layout_width="match_parent">
             <TextView
                 android:id="@+id/employeeID"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
+                android:layout_column="0"
                 android:text="Mã NV:"/>
 
             <EditText
@@ -53,39 +56,46 @@
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
                 android:ems="10"
+                android:layout_column="1"
                 android:inputType="text"
                 android:text=""
                 android:hint="Nhập mã NV"/>
         </TableRow>
 
-        <TableRow>
+        <TableRow
+            android:layout_width="match_parent">
             <TextView
                 android:id="@+id/employeeName"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
+                android:layout_column="0"
                 android:layout_height="wrap_content"
                 android:text="Tên NV:"/>
 
             <EditText
                 android:id="@+id/employeeNameInput"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
                 android:ems="10"
+                android:layout_column="1"
                 android:inputType="text"
                 android:text=""
                 android:hint="Nhập tên NV"/>
         </TableRow>
 
-        <TableRow>
+        <TableRow
+            android:layout_width="match_parent">
             <TextView
                 android:id="@+id/employeeType"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_gravity="center"
+                android:layout_column="0"
                 android:layout_height="wrap_content"
                 android:text="Loại NV:"/>
             <RadioGroup
                 android:id="@+id/radioGroup"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_column="1"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 

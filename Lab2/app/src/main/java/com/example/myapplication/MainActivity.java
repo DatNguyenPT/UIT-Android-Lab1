@@ -14,8 +14,6 @@ public class MainActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
       setContentView(R.layout.main_layout);
-
-      // Create a list to hold button objects
       ArrayList<Button> buttons = new ArrayList<>();
       int maxButtons = 6;
       for (int i = 1; i <= maxButtons; i++) {

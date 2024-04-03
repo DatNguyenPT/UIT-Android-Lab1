@@ -53,6 +53,13 @@ public class EX3 extends AppCompatActivity {
 
                 if (!name.isEmpty() && !id.isEmpty()) {
                     employee newEmployee;
+                    if(radioGroup.getCheckedRadioButtonId() != R.id.officialButton || radioGroup.getCheckedRadioButtonId() != R.id.partTimeButton){
+                        new AlertDialog.Builder(activity)
+                                .setMessage("Cần xác định loại nhân viên")
+                                .setTitle("Chưa xác định nhân viên")
+                                .setPositiveButton("OK", null)
+                                .show();
+                    }
                     if (radioGroup.getCheckedRadioButtonId() == R.id.partTimeButton) {
                         newEmployee = new employeePartTime();
                     } else {
