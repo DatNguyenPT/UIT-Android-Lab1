@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
+        android:requestLegacyExternalStorage="true"
         tools:targetApi="31">
         <activity
             android:name=".MainActivity"
@@ -23,6 +24,7 @@
         </activity>
         <activity android:name=".EX1Package.EX1"></activity>
         <activity android:name=".EX2Package.EX2"></activity>
+        <activity android:name=".EX3Package.EX3"></activity>
     </application>
 
 </manifest>

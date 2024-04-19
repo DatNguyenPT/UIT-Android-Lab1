@@ -12,6 +12,7 @@ import android.widget.Button;
 
 import com.example.myapplication.EX1Package.EX1;
 import com.example.myapplication.EX2Package.EX2;
+import com.example.myapplication.EX3Package.EX3;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,12 +34,7 @@ public class ButtonAdapter extends ArrayAdapter<Button> {
         }
 
         Button button = (Button) convertView.findViewById(R.id.exOption);
-        if(position == 0){
-            button.setText("EX1_2");
-        }else
-            button.setText("EX " + (position + 2)); // Set button text based on position
-
-        // Set click listener to start corresponding intent
+        button.setText("EX " + (position + 1));
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,19 +47,10 @@ public class ButtonAdapter extends ArrayAdapter<Button> {
                     case 1:
                         intent = new Intent(context, EX2.class);
                         break;
-                    /*case 2:
-                        intent = new Intent(context, EX4.class);
+                    case 2:
+                        intent = new Intent(context, EX3.class);
                         break;
-                    case 3:
-                    case 3:
-                        intent = new Intent(context, EX5.class);
-                        break;
-                    case 4:
-                        intent = new Intent(context, EX6.class);
-                        break;
-                    case 5:
-                        intent = new Intent(context, EX7.class);
-                        break;*/
+
                     default:
                         intent = new Intent(context, EX1.class);
                         break;
