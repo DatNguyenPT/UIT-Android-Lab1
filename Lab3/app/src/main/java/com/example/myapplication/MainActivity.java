@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
         ArrayList<Button> buttons = new ArrayList<>();
-        int maxButtons = 3;
+        int maxButtons = 4;
         for (int i = 1; i <= maxButtons; i++) {
             Button newButton = new Button(this);
             buttons.add(newButton);

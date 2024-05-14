@@ -73,8 +73,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
     // Getting All Contacts
     @SuppressLint("Range")
-    public List<Contact> getAllContacts() {
-        List<Contact>contactList = new ArrayList<>();
+    public ArrayList<Contact> getAllContacts() {
+        ArrayList<Contact>contactList = new ArrayList<>();
         Cursor cursor = sqLiteDatabase.query(DATABASE_TABLE, new String[]{KEY_ID, KEY_NAME, KEY_PH_NO}, null, null, null, null, null);
         while(cursor.moveToNext()){
             Contact foundContact = new Contact();
@@ -103,6 +103,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 null) > 0;
     }
     public boolean deleteAllUsers() {
-        return sqLiteDatabase.delete(DATABASE_TABLE, null, null) > 0;
+        boolean result = sqLiteDatabase.delete(DATABASE_TABLE, null, null) > 0;
+        if(result) {
+            sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE);
+            onCreate(sqLiteDatabase);
+        }
+        return result;
     }
+
 }

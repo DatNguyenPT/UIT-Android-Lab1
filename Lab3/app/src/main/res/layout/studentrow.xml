@@ -13,7 +13,7 @@
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:ellipsize="end"
-            android:textSize="40dp"
+            android:textSize="22sp"
             android:singleLine="true" />
     </LinearLayout>
 </LinearLayout>

@@ -1,4 +1,4 @@
-package com.example.myapplication.EX3Package;
+package com.example.myapplication.EX2Package;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,39 +6,37 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
-
-import com.example.myapplication.EX2Package.Contact;
 import com.example.myapplication.R;
-
 import java.util.ArrayList;
 
-public class studentAdapter extends ArrayAdapter<Student> {
-    private Context mContext;
-    private ArrayList<Student> mStudents;
+public class ContactAdapter extends ArrayAdapter<Contact> {
 
-    public studentAdapter(Context context, ArrayList<Student> mStudents) {
-        super(context, 0, mStudents);
+    private Context mContext;
+    private ArrayList<Contact> mContacts;
+
+    public ContactAdapter(Context context, ArrayList<Contact> contacts) {
+        super(context, 0, contacts);
         mContext = context;
-        mStudents = mStudents;
+        mContacts = contacts;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
-        Student student = getItem(position);
+        Contact contact = getItem(position);
 
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.studentrow, parent, false);
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.userrow, parent, false);
         }
 
         // Lookup view for data population
-        TextView studentInfo = convertView.findViewById(R.id.studentInfo);
+        TextView nameTextView = convertView.findViewById(R.id.username);
+        TextView phoneTextView = convertView.findViewById(R.id.userPhone);
 
         // Populate the data into the template view using the data object
-        String result = student.getClassID() + " " + student.getId() + " " + student.getName();
-        studentInfo.setText(result);
+        nameTextView.setText(contact.getName());
+        phoneTextView.setText(contact.getPhoneNumber());
 
         // Return the completed view to render on screen
         return convertView;

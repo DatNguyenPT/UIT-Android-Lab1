@@ -13,6 +13,7 @@ import android.widget.Button;
 import com.example.myapplication.EX1Package.EX1;
 import com.example.myapplication.EX2Package.EX2;
 import com.example.myapplication.EX3Package.EX3;
+import com.example.myapplication.EX3Package.EX3Extra;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +50,9 @@ public class ButtonAdapter extends ArrayAdapter<Button> {
                         break;
                     case 2:
                         intent = new Intent(context, EX3.class);
+                        break;
+                    case 3:
+                        intent = new Intent(context, EX3Extra.class);
                         break;
 
                     default:
