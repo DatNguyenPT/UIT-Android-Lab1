@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 
 import androidx.appcompat.app.AlertDialog;
@@ -34,7 +35,6 @@ public class EX3 extends AppCompatActivity {
         studentList = new ArrayList<>();
         studentListView = findViewById(R.id.studentLV);
         studentAdapter = new studentAdapter(this, studentList);
-        studentListView.setAdapter(studentAdapter);
         Button insertButton = findViewById(R.id.insert);
         Button updateButton = findViewById(R.id.update);
         Button deleteButton = findViewById(R.id.delete);
@@ -69,7 +69,8 @@ public class EX3 extends AppCompatActivity {
                     } else {
                         studentList.add(newStudent);
                         databaseHandler.addStudent(newStudent);
-                        studentAdapter.notifyDataSetChanged(); // Notify adapter of data change
+                        Toast.makeText(EX3.this, "Đã thêm sinh viên vào db", Toast.LENGTH_SHORT).show();
+                        //studentAdapter.notifyDataSetChanged(); // Notify adapter of data change
                     }
                 } else {
                     new AlertDialog.Builder(activity)
@@ -110,6 +111,8 @@ public class EX3 extends AppCompatActivity {
                                 .setTitle("Xóa sinh viên thành công")
                                 .setPositiveButton("OK", null)
                                 .show();
+                        /*studentAdapter = new studentAdapter(EX3.this, studentList);
+                        studentListView.setAdapter(studentAdapter);*/
                         studentAdapter.notifyDataSetChanged();
                     } else {
                         new AlertDialog.Builder(activity)
@@ -173,7 +176,7 @@ public class EX3 extends AppCompatActivity {
                                 .setTitle("Cập nhật thông tin sinh viên")
                                 .setPositiveButton("OK", null)
                                 .show();
-                        studentAdapter.notifyDataSetChanged();
+                        //studentAdapter.notifyDataSetChanged();
                     } else {
                         new AlertDialog.Builder(activity)
                                 .setMessage("Kiểm tra lại MSSV, TÊN và LỚP")
@@ -204,15 +207,18 @@ public class EX3 extends AppCompatActivity {
                     target.setName(name);
                     target.setId(id);
                     target.setClassID(classID);
-                    String studentInfo = "Sinh viên: " + target.getId() + ", " + target.getName() + ", " + target.getClassID();
+                    String studentInfo = "Sinh viên: " + target.getName() + ", " + target.getClassID() + ", " + target.getId();
                     if (checkStudentExist(id)) {
-                         studentInfo += " tồn tại trong danh sách";
-
-                        new AlertDialog.Builder(activity)
+                        ArrayList<Student>tempList = new ArrayList<>();
+                        tempList.add(target);
+                        studentAdapter = new studentAdapter(EX3.this, tempList);
+                        studentListView.setAdapter(studentAdapter);
+                        /*new AlertDialog.Builder(activity)
                                 .setMessage(studentInfo)
                                 .setTitle("Tìm kiếm sinh viên")
                                 .setPositiveButton("OK", null)
-                                .show();
+                                .show();*/
+                        studentAdapter.notifyDataSetChanged();
                     } else {
                         studentInfo += " không tồn tại trong danh sách";
                         new AlertDialog.Builder(activity)
