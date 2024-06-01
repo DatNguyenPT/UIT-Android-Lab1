@@ -3,4 +3,5 @@
     <dimen name="margin_base">5dp</dimen>
     <dimen name="margin_basex2">10dp</dimen>
     <dimen name="text_medium">16sp</dimen>
+    <dimen name="image_base">100dp</dimen>
 </resources>
